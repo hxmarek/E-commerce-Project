@@ -52,6 +52,11 @@ The backend is organized as follows:
      spring.datasource.username=your_username
      spring.datasource.password=your_password
      ```
+     Then add the stripe API key
+      ```properties
+     stripe.secret.key=sk_test_51RGz8QGhr6ab3e..............................
+     ```
+     
 
 3. Install dependencies and build the project:
    ```bash
@@ -67,22 +72,35 @@ The backend is organized as follows:
 
 ## API Endpoints
 
-### Authentication
+### Personal 
 - `POST /api/auth/register`: Register a new user.
+- `POST /api/auth/store/register`: Register a new store.
 - `POST /api/auth/login`: Login for users.
 - `POST /api/auth/admin/login`: Admin login.
+- `POST api/auth/store/login`: Store login.
+- `GET /api/auth/admin/users`: Retrieve all users.
+- `GET /api/auth/admin/users`: Retrieve all stores.
+- `DELETE /api/auth/admin/users/{id}`: Delete user by ID.
+- `DELETE /api/auth/admin/stores/MyStore`: Delete store by ID.
 
 ### Products
 - `GET /api/products`: Retrieve all products.
 - `POST /api/products`: Create a new product.
 - `GET /api/products/{id}`: Retrieve product by ID.
+- `GET /api/products/my-products`: Retrieve products of logged store.
+- `DELETE /api/products/{id}`: Delete product by ID.
+- `POST /api/comments/product/{id}`: User makes a comment.
+- `GET /api/comments/product/{id}`: Retrieve comments of a product by ID.
 
 ### Orders
 - `POST /orders`: Create an order.
 - `GET /orders`: Retrieve user orders.
+- `GET /api/store/orders`: Retrieve stores orders.
+- `PUT /api/store/orders/{id}/status?status=Confirmed`: Changes order status.
 
 ### Payments
 - `POST /api/payment-intent`: Create a payment intent using Stripe.
+- `GET /api/payments/stripe-check` Check payment
 
 ---
 
