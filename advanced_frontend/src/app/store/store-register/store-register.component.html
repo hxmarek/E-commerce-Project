@@ -1,0 +1,47 @@
+<div class="register-container">
+    <h2>Mağaza Kaydı</h2>
+  
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="storeName">Mağaza Adı</label>
+        <input id="storeName" formControlName="storeName" type="text" />
+        <div *ngIf="submitted && registerForm.controls['storeName'].errors">
+          Mağaza adı zorunludur.
+        </div>
+      </div>
+  
+      <div>
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" />
+        <div *ngIf="submitted && registerForm.controls['email'].errors">
+          Geçerli bir email adresi giriniz.
+        </div>
+      </div>
+  
+      <div>
+        <label for="password">Şifre</label>
+        <input id="password" formControlName="password" type="password" />
+        <div *ngIf="submitted && registerForm.controls['password'].errors">
+          Şifre en az 6 karakter olmalıdır.
+        </div>
+      </div>
+  
+      <div>
+        <label for="confirmPassword">Şifreyi Tekrarla</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password" />
+        <div *ngIf="submitted && passwordMismatch()">
+          Şifreler uyuşmuyor.
+        </div>
+      </div>
+  
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+  
+      <button type="submit">Kayıt Ol</button>
+    </form>
+    <div class="login-link">
+      Do you already have a store? <a routerLink="/store/login">Login</a>
+    </div>
+  </div>
+  

@@ -1,0 +1,98 @@
+/* Footer Styles */
+.footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 30px 0;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* Store Login Button in Footer */
+.store-login-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: #f39c12;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.store-login-btn:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.store-login-btn i {
+  margin-right: 8px;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: #ecf0f1;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #f39c12;
+  transform: translateY(-3px);
+}
+
+.footer-text {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #bdc3c7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .footer-actions {
+    order: 2;
+    margin: 15px 0;
+  }
+  
+  .social-links {
+    order: 1;
+  }
+  
+  .footer-text {
+    order: 3;
+  }
+  
+  .store-login-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}

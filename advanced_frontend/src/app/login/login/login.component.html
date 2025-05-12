@@ -1,0 +1,81 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Welcome Back</h2>
+      <p>Please login to your account</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email" 
+            placeholder="Enter your email"
+            [class.error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+          >
+        </div>
+        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          Please enter a valid email address
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input 
+            [type]="showPassword ? 'text' : 'password'" 
+            id="password" 
+            formControlName="password" 
+            placeholder="Enter your password"
+            [class.error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+          >
+          <i 
+            class="fas" 
+            [class.fa-eye]="!showPassword" 
+            [class.fa-eye-slash]="showPassword"
+            (click)="togglePasswordVisibility()"
+          ></i>
+        </div>
+        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Password must be at least 6 characters long
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-me">
+          <input type="checkbox" formControlName="rememberMe">
+          <span>Remember me</span>
+        </label>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="login-button" [disabled]="loginForm.invalid">
+        Login
+      </button>
+
+      <div class="register-link">
+        Don't have an account? <a routerLink="/register">Register</a>
+      </div>
+    </form>
+
+    <div class="social-login">
+      <p>Or login with</p>
+      <div class="social-buttons">
+        <button class="social-btn google">
+          <i class="fab fa-google"></i>
+        </button>
+        <button class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button class="social-btn twitter">
+          <i class="fab fa-twitter"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

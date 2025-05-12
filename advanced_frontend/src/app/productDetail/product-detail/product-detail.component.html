@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div *ngIf="product">
+  <div class="product-detail-container">
+    <div class="product-image">
+      <img [src]="product.image" [alt]="product.name" />
+    </div>
+
+    <div class="product-info">
+      <h1 class="product-name">{{ product.name }}</h1>
+      <p class="product-category">{{ product.category | titlecase }}</p>
+
+      <div class="product-rating">
+        <span class="stars">⭐ {{ product.rating }}</span>
+        <span class="reviews">({{ product.reviewCount }} reviews)</span>
+      </div>
+
+      <p class="product-price">{{ product.price | currency: '$' }}</p>
+
+      <div class="product-actions">
+        <button (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-comments">
+    <h2>Yorumlar</h2>
+    <p *ngIf="comments.length === 0">Hiç yorum yok.</p>
+    <div *ngFor="let comment of comments" class="comment">
+      <p><strong>Puan:</strong> {{ comment.rating }} / 5</p>
+      <p><strong>Yorum:</strong> {{ comment.comment }}</p>
+      <p><em>{{ comment.dateTime | date: 'short' }}</em></p>
+      <hr />
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

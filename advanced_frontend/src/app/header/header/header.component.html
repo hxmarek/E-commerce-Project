@@ -1,0 +1,67 @@
+<header class="header">
+  <div class="header-container">
+    <div class="brand-container">
+      <div class="brand-logo">
+        <i class="fas fa-store"></i>
+      </div>
+      <div class="brand-name">
+        <span class="brand-first">Furkan</span>
+        <span class="brand-second"> ShopCenter</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/products" class="nav-link" routerLinkActive="active">Products</a>
+      <a routerLink="/about" class="nav-link" routerLinkActive="active">About</a>
+      <a routerLink="/contact" class="nav-link" routerLinkActive="active">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="action-btn">
+        <i class="fas fa-search"></i>
+      </button>
+      <button class="cart-btn" (click)="goToCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" *ngIf="cartCount > 0">
+          {{ cartCount }}
+        </span>
+      </button>
+      <button class="compare-btn" (click)="goToCompare()">
+        <i class="fas fa-balance-scale"></i>
+        <span class="compare-count" *ngIf="compareCount > 0">
+          {{ compareCount }}
+        </span>
+      </button>
+      
+      <!-- User dropdown menu when logged in -->
+      <div class="user-menu" *ngIf="isLoggedIn; else loginButton">
+        <button class="user-btn" (click)="toggleDropdown()">
+          <i class="fas fa-user"></i>
+          {{ user?.name }} {{ user?.surname }}
+          <i class="fas" [class.fa-chevron-down]="!isDropdownOpen" [class.fa-chevron-up]="isDropdownOpen"></i>
+        </button>
+        <div class="dropdown-menu" [class.show]="isDropdownOpen">
+          <a routerLink="/userorders" class="dropdown-item">
+            <i class="fas fa-box"></i>
+            My Orders
+          </a>
+          <a routerLink="/profile" class="dropdown-item">
+            <i class="fas fa-user-cog"></i>
+            My Information
+          </a>
+          <div class="dropdown-divider"></div>
+          <a (click)="logout()" class="dropdown-item">
+            <i class="fas fa-sign-out-alt"></i>
+            Log Out
+          </a>
+        </div>
+      </div>
+
+      <!-- Login button when not logged in -->
+      <ng-template #loginButton>
+        <a routerLink="/login" class="login-btn">
+          <i class="fas fa-user"></i> Login
+        </a>
+      </ng-template>
+    </div>
+  </div>
+</header>

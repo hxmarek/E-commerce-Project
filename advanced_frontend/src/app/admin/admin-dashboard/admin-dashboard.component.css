@@ -1,0 +1,23 @@
+.dashboard-container {
+    padding: 20px;
+  }
+  
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .logout-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+  }
+  

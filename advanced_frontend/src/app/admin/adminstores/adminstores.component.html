@@ -1,0 +1,37 @@
+<div class="container">
+    <h1 class="title">Mağaza Listesi</h1>
+  
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="stores.length > 0; else loading">
+      <div class="store-card" *ngFor="let store of stores; let i = index" (click)="toggleProducts(i)">
+        <h2>{{ store.name }}</h2>
+        <p>Email: {{ store.email }}</p>
+  
+        <div *ngIf="selectedStoreIndex === i && store.products.length > 0" class="products-container">
+          <h3>Ürünler</h3>
+          <div class="products-grid">
+            <div class="product-card" *ngFor="let product of store.products">
+              <img [src]="product.image" alt="{{ product.name }}">
+              <h4>{{ product.name }}</h4>
+              <p>Fiyat: {{ product.price | currency:'$' }}</p>
+              <p>Puan: ⭐ {{ product.rating }} ({{ product.reviewCount }} yorum)</p>
+              <p>Kategori: {{ product.category }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <div *ngIf="selectedStoreIndex === i && store.products.length === 0" class="no-products">
+          Bu mağazada ürün bulunmuyor.
+        </div>
+  
+      </div>
+    </div>
+  
+    <ng-template #loading>
+      <div class="loading">Yükleniyor...</div>
+    </ng-template>
+  </div>
+  

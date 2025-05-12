@@ -1,0 +1,41 @@
+<div class="compare-container">
+  <h1>Compare Products</h1>
+  
+  <div class="compare-actions">
+    <button class="clear-btn" (click)="clearCompare()">Clear All</button>
+  </div>
+
+  <div class="compare-grid" *ngIf="comparedProducts.length > 0">
+    <div class="compare-product" *ngFor="let product of comparedProducts">
+      <div class="product-header">
+        <img [src]="product.image" [alt]="product.name">
+        <h3>{{ product.name }}</h3>
+        <button class="remove-btn" (click)="removeFromCompare(product.id)">×</button>
+      </div>
+      
+      <div class="product-details">
+        <div class="detail-item">
+          <span class="label">Price</span>
+          <span class="value">${{ product.price }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Rating</span>
+          <span class="value">{{ product.rating }}/5</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Reviews</span>
+          <span class="value">{{ product.reviewCount }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Category</span>
+          <span class="value">{{ product.category }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="comparedProducts.length === 0">
+    <p>No products selected for comparison</p>
+    <button class="browse-btn" (click)="goToProducts()" routerLink="/products">Browse Products</button>
+  </div>
+</div> 

@@ -1,0 +1,33 @@
+<div class="container">
+    <h1 class="title">Kullanıcı Listesi</h1>
+  
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="users.length > 0; else loading">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <ng-template #loading>
+      <div class="loading">Yükleniyor...</div>
+    </ng-template>
+  </div>
+  

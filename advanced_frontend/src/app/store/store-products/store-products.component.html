@@ -1,0 +1,36 @@
+<app-header [storename]="store_name"></app-header>
+<div class="products-container">
+    <div class="products-header">
+      <h1>Our Products</h1>
+      <div class="search-filter">
+        <input type="text" placeholder="Search products..." (change)="onSearchChange($any($event.target).value)" class="search-input">
+        <div class="product-container">
+          <div class="filter-section">
+            <select class="category-filter" (change)="onCategoryChange($any($event.target).value)">
+              <option *ngFor="let category of categories" [value]="category">
+                {{ category | titlecase }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of filteredProducts">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="product-overlay">
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">{{ product.name }}</h3>
+          <div class="product-rating">
+            <i *ngFor="let star of getStarRating(product.rating)" [class]="star"></i>
+            <span>({{ product.reviewCount }})</span>
+          </div>
+          <p class="product-price">${{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div> 

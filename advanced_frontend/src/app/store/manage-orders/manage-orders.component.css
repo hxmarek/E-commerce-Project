@@ -1,0 +1,44 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .order-card {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .order-header select {
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .order-info {
+    margin-top: 0.5rem;
+  }
+  
+  .order-items {
+    margin-top: 1rem;
+  }
+  
+  .order-items ul {
+    padding-left: 20px;
+  }
+  

@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Manage Orders</h2>
+  
+    <div *ngIf="orders.length === 0">Loading orders...</div>
+  
+    <div *ngFor="let order of orders" class="order-card">
+      <div class="order-header">
+        <strong>Order #{{ order.orderId }}</strong>
+        <span> Change Status:
+          
+            <select [value]="order.orderStatus" (change)="onStatusChange($event, order.orderId)">
+                <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+              </select>
+        </span>
+      </div>
+  
+      <div class="order-info">
+        <p><strong>Payment:</strong> {{ order.paymentType }}</p>
+        <p><strong>Date:</strong> {{ order.paymentDate }} {{ order.paymentTime }}</p>
+        <p><strong>Total:</strong> {{ order.totalAmount | currency }}</p>
+        <p><strong>Status:</strong> {{ order.orderStatus }}</p>
+      </div>
+  
+      <div class="order-items">
+        <h4>Items:</h4>
+        <ul>
+          <li *ngFor="let item of order.items">
+            {{ item.productName }} (x{{ item.quantity }})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

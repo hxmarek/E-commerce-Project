@@ -1,0 +1,31 @@
+
+<div class="delete-products-container">
+  <h1>Delete Products</h1>
+  
+  <div class="products-list">
+    <div class="product-item" *ngFor="let product of products">
+      <div class="product-checkbox">
+        <input type="checkbox" 
+               [checked]="selectedProducts.has(product.id)"
+               (change)="toggleProductSelection(product.id)">
+      </div>
+      <div class="product-info">
+        <img [src]="product.image" [alt]="product.name" class="product-image">
+        <div class="product-details">
+          <h3>{{ product.name }}</h3>
+          <p class="price">${{ product.price }}</p>
+          <p class="category">{{ product.category }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="delete-btn" 
+            [disabled]="selectedProducts.size === 0"
+            (click)="deleteSelectedProducts()">
+      Delete Selected Products
+    </button>
+    <button class="back-btn" (click)="goBack()">Back to Products</button>
+  </div>
+</div>

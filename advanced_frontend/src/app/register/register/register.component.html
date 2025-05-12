@@ -1,0 +1,145 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>Create Account</h2>
+      <p>Join our community today</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="form-group">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input 
+            type="text" 
+            formControlName="name" 
+            placeholder="Name"
+            [class.error]="f['name'].touched && f['name'].errors"
+          >
+        </div>
+        <div class="error-message" *ngIf="f['name'].touched && f['name'].errors?.['required']">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input 
+            type="text" 
+            formControlName="surname" 
+            placeholder="Surname"
+            [class.error]="f['surname'].touched && f['surname'].errors"
+          >
+        </div>
+        <div class="error-message" *ngIf="f['surname'].touched && f['surname'].errors?.['required']">
+          Surname is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input 
+            type="email" 
+            formControlName="email" 
+            placeholder="Email"
+            [class.error]="f['email'].touched && f['email'].errors"
+          >
+        </div>
+        <div class="error-message" *ngIf="f['email'].touched && f['email'].errors?.['required']">
+          Email is required
+        </div>
+        <div class="error-message" *ngIf="f['email'].touched && f['email'].errors?.['email']">
+          Please enter a valid email
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input 
+            [type]="showPassword ? 'text' : 'password'" 
+            formControlName="password" 
+            placeholder="Password"
+            [class.error]="f['password'].touched && f['password'].errors"
+          >
+          <i 
+            class="fas toggle-password" 
+            [class.fa-eye]="!showPassword" 
+            [class.fa-eye-slash]="showPassword"
+            (click)="togglePasswordVisibility('password')"
+          ></i>
+        </div>
+        <div class="error-message" *ngIf="f['password'].touched && f['password'].errors?.['required']">
+          Password is required
+        </div>
+        <div class="error-message" *ngIf="f['password'].touched && f['password'].errors?.['minlength']">
+          Password must be at least 6 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input 
+            [type]="showConfirmPassword ? 'text' : 'password'" 
+            formControlName="confirmPassword" 
+            placeholder="Confirm Password"
+            [class.error]="f['confirmPassword'].touched && (f['confirmPassword'].errors || registerForm.errors?.['passwordMismatch'])"
+          >
+          <i 
+            class="fas toggle-password" 
+            [class.fa-eye]="!showConfirmPassword" 
+            [class.fa-eye-slash]="showConfirmPassword"
+            (click)="togglePasswordVisibility('confirmPassword')"
+          ></i>
+        </div>
+        <div class="error-message" *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors?.['required']">
+          Please confirm your password
+        </div>
+        <div class="error-message" *ngIf="registerForm.errors?.['passwordMismatch'] && f['confirmPassword'].touched">
+          Passwords do not match
+        </div>
+      </div>
+
+      <div class="form-group terms-group">
+        <label class="checkbox-label">
+          <input type="checkbox" formControlName="terms">
+          <span class="checkmark"></span>
+          <span class="terms-text">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+        </label>
+        <div class="error-message" *ngIf="f['terms'].touched && f['terms'].errors?.['required']">
+          You must agree to the terms
+        </div>
+      </div>
+
+      <div class="error-message main-error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="!registerForm.valid || submitted">
+        <span *ngIf="!submitted">Create Account</span>
+        <i class="fas fa-spinner fa-spin" *ngIf="submitted"></i>
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Already have an account? <a (click)="navigateToLogin()">Login</a></p>
+    </div>
+
+    <div class="social-auth">
+      <p>Or sign up with</p>
+      <div class="social-buttons">
+        <button class="social-btn google">
+          <i class="fab fa-google"></i>
+        </button>
+        <button class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+        </button>
+        <button class="social-btn twitter">
+          <i class="fab fa-twitter"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

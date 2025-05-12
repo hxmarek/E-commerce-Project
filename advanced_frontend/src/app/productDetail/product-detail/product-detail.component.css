@@ -1,0 +1,105 @@
+.product-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: #fff;
+  }
+  
+  .product-image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-comments {
+    margin: 2rem;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+  }
+  
+  .comment {
+    margin-bottom: 1.5rem;
+  }
+  
+  
+  .product-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .product-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-category {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .product-rating {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #f59e0b;
+  }
+  
+  .product-rating .reviews {
+    color: #555;
+    margin-left: 0.5rem;
+  }
+  
+  .product-price {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+  }
+  
+  .product-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .product-actions button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-actions button:first-child {
+    background-color: #3b82f6;
+    color: #fff;
+  }
+  
+  .product-actions button:first-child:hover {
+    background-color: #2563eb;
+  }
+  
+  .product-actions .buy-now {
+    background-color: #10b981;
+    color: #fff;
+  }
+  
+  .product-actions .buy-now:hover {
+    background-color: #059669;
+  }
+  

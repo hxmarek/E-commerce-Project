@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  .store-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .button-group button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: white;
+    color: #1976d2;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .button-group button:hover {
+    background-color: #e0e0e0;
+  }

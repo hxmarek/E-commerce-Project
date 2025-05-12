@@ -1,0 +1,31 @@
+<div *ngIf="loading">
+    <p>Yükleniyor...</p>
+  </div>
+  
+  <div *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+  
+  <div *ngIf="!loading && !error && orders.length === 0">
+    <p>Hiç siparişiniz bulunmamaktadır.</p>
+  </div>
+  
+  <div *ngIf="!loading && !error && orders.length > 0">
+    <div *ngFor="let order of orders" class="order-card">
+      <h3>Sipariş #{{ order.orderId }}</h3>
+      <p>Ödeme Türü: {{ order.paymentType }}</p>
+      <p>Ödeme Tarihi: {{ order.paymentDate }} - {{ order.paymentTime }}</p>
+      <p>Sipariş Durumu: {{ order.orderStatus }}</p>
+      <p>Toplam Tutar: {{ order.totalAmount | currency:'$' }}</p>
+  
+      <h4>Ürünler:</h4>
+      <ul>
+        <li *ngFor="let item of order.items">
+          {{ item.productName }} x{{ item.quantity }}
+          <button (click)="writeComment(item.productId)" style="margin-left: 12px;">Write a comment</button>
+        </li>
+      </ul>
+  
+      <hr>
+    </div>
+  </div>

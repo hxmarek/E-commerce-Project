@@ -1,0 +1,18 @@
+<div class="comment-form">
+  <h2>Write a comment</h2>
+
+  <label for="rating">Point:</label>
+  <div class="stars">
+    <span 
+      *ngFor="let star of [1,2,3,4,5]" 
+      (click)="selectRating(star)" 
+      [class.filled]="star <= rating"
+    >
+      ★
+    </span>
+  </div>
+
+  <textarea [(ngModel)]="commentText" rows="5" placeholder="Write a comment in here"></textarea>
+  
+  <button (click)="submitComment()">Send</button>
+</div>

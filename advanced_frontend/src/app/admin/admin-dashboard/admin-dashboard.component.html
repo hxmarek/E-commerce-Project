@@ -1,0 +1,15 @@
+<div class="dashboard-container">
+    <h2>Admin Dashboard</h2>
+  
+    <div class="button-grid">
+      <button (click)="navigateTo('/admin/users')">Users</button>
+      <button (click)="navigateTo('/admin/stores')">Stores</button>
+      <button (click)="navigateTo('/admin/deleteuser')">Delete User</button>
+      <button (click)="navigateTo('/admin/deletestore')">Delete Store</button>
+    </div>
+  
+    <hr>
+  
+    <button (click)="logout()" class="logout-button">Logout</button>
+  </div>
+  

@@ -1,0 +1,126 @@
+.register-container {
+    max-width: 450px; /* Login'den biraz daha geniş */
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .register-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+  
+  .register-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .register-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #34495e;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .register-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  .register-container input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .register-container button {
+    background-color: #2ecc71; /* Login'den farklı yeşil renk */
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .register-container button:hover {
+    background-color: #27ae60;
+  }
+  
+  .register-container div[role="alert"] {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    background-color: #fadbd8;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border-left: 4px solid #e74c3c;
+  }
+  
+  /* Login sayfasına yönlendirme */
+  .login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #7f8c8d;
+    font-size: 14px;
+  }
+  
+  .login-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .login-link a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+  }
+  
+  /* Responsive tasarım */
+  @media (max-width: 480px) {
+    .register-container {
+      margin: 20px;
+      padding: 20px;
+    }
+    
+    .register-container h2 {
+      font-size: 24px;
+    }
+  }
+  
+  /* Şifre güç göstergesi */
+  .password-strength {
+    margin-top: 5px;
+    height: 4px;
+    background: #ecf0f1;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .password-strength-bar {
+    height: 100%;
+    transition: width 0.3s ease, background 0.3s ease;
+  }

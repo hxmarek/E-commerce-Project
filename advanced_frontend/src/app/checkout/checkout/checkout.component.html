@@ -1,0 +1,117 @@
+<div class="checkout-container">
+  <h1>Checkout</h1>
+  
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" class="checkout-form">
+    <div class="form-sections">
+      <!-- Delivery Information -->
+      <section class="form-section">
+        <h2>Delivery Information</h2>
+        <div class="form-group">
+          <div class="name-group">
+            <div class="form-field">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" formControlName="firstName">
+              <div class="error-message" *ngIf="checkoutForm.get('firstName')?.touched && checkoutForm.get('firstName')?.errors?.['required']">
+                First name is required
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" formControlName="lastName">
+              <div class="error-message" *ngIf="checkoutForm.get('lastName')?.touched && checkoutForm.get('lastName')?.errors?.['required']">
+                Last name is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="address">Address</label>
+            <input type="text" id="address" formControlName="address">
+            <div class="error-message" *ngIf="checkoutForm.get('address')?.touched && checkoutForm.get('address')?.errors?.['required']">
+              Address is required
+            </div>
+          </div>
+
+          <div class="location-group">
+            <div class="form-field">
+              <label for="city">City</label>
+              <input type="text" id="city" formControlName="city">
+              <div class="error-message" *ngIf="checkoutForm.get('city')?.touched && checkoutForm.get('city')?.errors?.['required']">
+                City is required
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="country">Country</label>
+              <input type="text" id="country" formControlName="country">
+              <div class="error-message" *ngIf="checkoutForm.get('country')?.touched && checkoutForm.get('country')?.errors?.['required']">
+                Country is required
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="postalCode">Postal Code</label>
+              <input type="text" id="postalCode" formControlName="postalCode">
+              <div class="error-message" *ngIf="checkoutForm.get('postalCode')?.touched && checkoutForm.get('postalCode')?.errors?.['required']">
+                Postal code is required
+              </div>
+              <div class="error-message" *ngIf="checkoutForm.get('postalCode')?.touched && checkoutForm.get('postalCode')?.errors?.['pattern']">
+                Please enter a valid 5-digit postal code
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" formControlName="phone">
+            <div class="error-message" *ngIf="checkoutForm.get('phone')?.touched && checkoutForm.get('phone')?.errors?.['required']">
+              Phone number is required
+            </div>
+            <div class="error-message" *ngIf="checkoutForm.get('phone')?.touched && checkoutForm.get('phone')?.errors?.['pattern']">
+              Please enter a valid 10-digit phone number
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="orderNote">Order Note (Optional)</label>
+            <textarea id="orderNote" formControlName="orderNote" rows="3"></textarea>
+          </div>
+        </div>
+      </section>
+
+      
+      
+    </div>
+
+    <!-- Order Summary -->
+    <section class="order-summary">
+      <h2>Order Summary</h2>
+      <div class="summary-items">
+        <div *ngFor="let item of cartItems" class="summary-item">
+          <div class="item-info">
+            <span class="item-name">{{item.name}}</span>
+            <span class="item-quantity">x{{item.quantity}}</span>
+          </div>
+          <span class="item-price">${{item.price * item.quantity}}</span>
+        </div>
+      </div>
+
+      <div class="summary-totals">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>${{subtotal}}</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span>${{shippingCost}}</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span>${{total}}</span>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-button" [disabled]="!checkoutForm.valid">
+        Confirm and Pay
+      </button>
+    </section>
+  </form>
+</div>

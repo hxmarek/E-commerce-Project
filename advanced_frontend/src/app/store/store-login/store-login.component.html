@@ -1,0 +1,33 @@
+<div class="login-container">
+    <h2>Store Login</h2>
+  
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" />
+        <div *ngIf="submitted && loginForm.controls['email'].errors">
+          Geçerli bir email giriniz.
+        </div>
+      </div>
+  
+      <div>
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" />
+        <div *ngIf="submitted && loginForm.controls['password'].errors">
+          Password Needed.
+        </div>
+      </div>
+  
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+  
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="register-link">
+      Don't you have a store? <a routerLink="/store/register">Register</a>
+    </div>
+
+  </div>
+  

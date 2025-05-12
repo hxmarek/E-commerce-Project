@@ -1,0 +1,42 @@
+.admin-delete-store {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-delete-store h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .admin-delete-store input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .admin-delete-store button {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .admin-delete-store button:hover {
+    background-color: #c0392b;
+  }
+  
+  .admin-delete-store p {
+    margin-top: 15px;
+    color: #555;
+  }
+  
